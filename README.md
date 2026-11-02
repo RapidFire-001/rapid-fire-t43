@@ -13,7 +13,7 @@ Extract the single executable to a writable folder and keep its supplied filenam
 ## Compatibility
 
 - Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
-- Windows 11 has recorded test evidence. Windows 10 is expected with .NET Framework 4.8 and a compatible OBDX Pro GT USB driver, but has not been separately qualified. Windows 7 has user-reported testing with incomplete environment/operation details. Windows XP is incompatible with this build. macOS and Linux are not supported.
+- Windows 11 has recorded test evidence. Windows 10 is expected with .NET Framework 4.8 and a compatible OBDX Pro GT USB driver, but has not been separately qualified. Windows 7 has user-reported testing with complete environment/operation details. Windows XP is incompatible with this build. macOS and Linux are not supported.
 - The download above is x64. [Download the x86 prerelease](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106-x86/Rapid-Fire-T43-Protected-0.4.106-x86.zip) for the separately tested 32-bit executable. Testing an x86 executable on 64-bit Windows does not establish qualification of every 32-bit Windows installation.
 
 ## Limits
