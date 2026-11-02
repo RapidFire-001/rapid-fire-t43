@@ -1,0 +1,13 @@
+RAPID FIRE APPLICATION DISTRIBUTION TERMS
+
+Copyright (c) 2026 Rapidfire. All rights reserved.
+
+Permission is granted to download and use the complete, unmodified compiled Rapid Fire application free of charge for personal or business use, and to share the complete, unmodified application free of charge with its copyright and licence notices intact.
+
+Rapidfire retains proprietary rights in the application and its source. This is not an open-source licence. No permission is granted to distribute modified Rapidfire-owned application components, private application source, build scripts or private development history, except as permitted by applicable law or a separate written agreement. User-owned vehicle files and data are outside this licence.
+
+Applicable third-party licences and rights remain in force and take precedence for their respective material. These terms do not restrict rights granted by those licences. The embedded Rapid Fire Boot Block licence continues to govern its stated reader-helper scope; the permission above includes sharing that helper only as part of the complete, unmodified application, not as a separately distributed proprietary component.
+
+The software is provided as is, without express or implied warranty, to the extent permitted by law. To that extent, Rapidfire accepts no liability for loss or damage arising from its use. Nothing in these terms excludes or limits any right, guarantee or remedy that cannot lawfully be excluded or limited.
+
+Full applicable third-party notices and the Boot Block licence are available in Help. Use remains subject to the application's documented compatibility and testing limits. No warranty of tuning suitability, universal controller support or error-free operation is provided.
