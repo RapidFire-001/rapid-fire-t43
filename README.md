@@ -4,7 +4,7 @@
 
 ## Recommended prerelease
 
-[Download 0.4.105 for Windows x64](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.105/Rapid-Fire-T43-Protected-0.4.105.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.105)
+[Download 0.4.106 for Windows x64](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106/Rapid-Fire-T43-Protected-0.4.106.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.106)
 
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
@@ -14,7 +14,7 @@ Extract the single executable to a writable folder and keep its supplied filenam
 
 - Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
 - Windows 11 has recorded test evidence. Windows 10 is expected with .NET Framework 4.8 and a compatible OBDX Pro GT USB driver, but has not been separately qualified. Windows 7 has user-reported testing with incomplete environment/operation details. Windows XP is incompatible with this build. macOS and Linux are not supported.
-- The download above is x64. [Download the x86 prerelease](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.105-x86/Rapid-Fire-T43-Protected-0.4.105-x86.zip) for the separately tested 32-bit executable. Testing an x86 executable on 64-bit Windows does not establish qualification of every 32-bit Windows installation.
+- The download above is x64. [Download the x86 prerelease](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106-x86/Rapid-Fire-T43-Protected-0.4.106-x86.zip) for the separately tested 32-bit executable. Testing an x86 executable on 64-bit Windows does not establish qualification of every 32-bit Windows installation.
 
 ## Limits
 
@@ -28,4 +28,4 @@ Read Help before connecting. Use stable vehicle power and follow the in-app prom
 
 Copyright (c) 2026 Rapidfire. All rights reserved, subject to applicable third-party terms.
 
-The approved whole-app distribution terms are provided in this repository and apply to the exact releases identified in their notes. The 0.4.105 binary is unchanged; its embedded Help still carries the existing Boot Block and third-party notices.
+The approved whole-app distribution terms are provided in this repository and apply to the exact releases identified in their notes. Version 0.4.106 embeds the approved whole-app terms alongside the Boot Block and third-party notices.
