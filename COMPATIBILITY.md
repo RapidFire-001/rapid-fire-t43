@@ -14,10 +14,10 @@
 | Windows 7 | User reported testing. Exact service pack/build, architecture, framework/driver versions and read/write/verification coverage have not been supplied for independent reproduction. |
 | Windows XP | Incompatible with the current framework API requirements. |
 
-## GM MDI: app and driver architecture
+## Single 32-bit app and GM MDI drivers
 
-**The public 0.4.106 downloads retain the GT workflow. MDI/MDI 2 support is currently a local, hardware-unverified candidate; choosing x86 does not add MDI support to the older public app.**
+The current download choice is **one 32-bit/x86 app**, for supported 32-bit and 64-bit Windows. Older x64 releases are superseded and are not supported for current MDI testing; they remain historical archives.
 
-For the MDI candidate, match the app to the installed **J2534 provider**, not to Windows: a 32-bit provider needs the **32-bit/x86 app even on 64-bit Windows**. The x64 app cannot load a 32-bit driver DLL. The original Bosch MDI provider checked on our test PC is 32-bit. Other MDI or MDI 2 provider configurations may differ; check the installed provider rather than assuming every model uses x86. Provider discovery alone does not confirm a connected unit or qualify vehicle reading/writing.
+**The public 0.4.106 app retains its GT workflow. MDI/MDI 2 support is a local, hardware-unverified candidate and is not added to the old public binary by choosing x86.** In the local 32-bit candidate, MDI and MDI 2 require an installed compatible **32-bit J2534 provider**. Match the provider to the app, not to Windows: the original Bosch MDI provider checked on our test PC is 32-bit, so a 64-bit app cannot load it. Other vendor/provider configurations may differ. Driver registration does not confirm a connected unit or qualify vehicle reading/writing.
 
 The app uses a local signed integrity seal. It is not a Windows publisher certificate, activation system or guarantee against reverse engineering. Integrity checks run before new operations, not as an integrity-triggered abort during active transfers. Keep the supplied executable filename.
