@@ -4,23 +4,23 @@
 
 ## Recommended prerelease
 
-[Download 0.4.106 for Windows x64](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106/Rapid-Fire-T43-Protected-0.4.106.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.106)
+[Download the 32-bit app — 0.4.106](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106-x86/Rapid-Fire-T43-Protected-0.4.106-x86.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.106-x86)
 
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
 Extract the single executable to a writable folder and keep its supplied filename. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
 
-## GM MDI: app and driver architecture
+## Single 32-bit app and GM MDI drivers
 
-**The public 0.4.106 downloads retain the GT workflow. MDI/MDI 2 support is currently a local, hardware-unverified candidate; choosing x86 does not add MDI support to the older public app.**
+The current download choice is **one 32-bit/x86 app**, for supported 32-bit and 64-bit Windows. Older x64 releases are superseded and are not supported for current MDI testing; they remain historical archives.
 
-For the MDI candidate, match the app to the installed **J2534 provider**, not to Windows: a 32-bit provider needs the **32-bit/x86 app even on 64-bit Windows**. The x64 app cannot load a 32-bit driver DLL. The original Bosch MDI provider checked on our test PC is 32-bit. Other MDI or MDI 2 provider configurations may differ; check the installed provider rather than assuming every model uses x86. Provider discovery alone does not confirm a connected unit or qualify vehicle reading/writing.
+**The public 0.4.106 app retains its GT workflow. MDI/MDI 2 support is a local, hardware-unverified candidate and is not added to the old public binary by choosing x86.** In the local 32-bit candidate, MDI and MDI 2 require an installed compatible **32-bit J2534 provider**. Match the provider to the app, not to Windows: the original Bosch MDI provider checked on our test PC is 32-bit, so a 64-bit app cannot load it. Other vendor/provider configurations may differ. Driver registration does not confirm a connected unit or qualify vehicle reading/writing.
 
 ## Compatibility
 
 - Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
 - Windows 11 has recorded test evidence. Windows 10 is expected with .NET Framework 4.8 and a compatible OBDX Pro GT USB driver, but has not been separately qualified. Windows 7 has user-reported testing with complete environment/operation details. Windows XP is incompatible with this build. macOS and Linux are not supported.
-- The download above is x64. [Download the x86 prerelease](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106-x86/Rapid-Fire-T43-Protected-0.4.106-x86.zip) for the separately tested 32-bit executable. Testing an x86 executable on 64-bit Windows does not establish qualification of every 32-bit Windows installation.
+- Use the supplied 32-bit app on supported 32-bit or 64-bit Windows. There is no separate current x64 choice. Historical x86-on-x64 host tests do not qualify every Windows installation.
 
 ## Limits
 
