@@ -10,6 +10,12 @@ Download the versioned app ZIP above, rather than GitHub's automatically generat
 
 Extract the single executable to a writable folder and keep its supplied filename. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
 
+## GM MDI: app and driver architecture
+
+**The public 0.4.106 downloads retain the GT workflow. MDI/MDI 2 support is currently a local, hardware-unverified candidate; choosing x86 does not add MDI support to the older public app.**
+
+For the MDI candidate, match the app to the installed **J2534 provider**, not to Windows: a 32-bit provider needs the **32-bit/x86 app even on 64-bit Windows**. The x64 app cannot load a 32-bit driver DLL. The original Bosch MDI provider checked on our test PC is 32-bit. Other MDI or MDI 2 provider configurations may differ; check the installed provider rather than assuming every model uses x86. Provider discovery alone does not confirm a connected unit or qualify vehicle reading/writing.
+
 ## Compatibility
 
 - Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
