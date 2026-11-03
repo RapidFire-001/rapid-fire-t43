@@ -14,4 +14,10 @@
 | Windows 7 | User reported testing. Exact service pack/build, architecture, framework/driver versions and read/write/verification coverage have not been supplied for independent reproduction. |
 | Windows XP | Incompatible with the current framework API requirements. |
 
+## GM MDI: app and driver architecture
+
+**The public 0.4.106 downloads retain the GT workflow. MDI/MDI 2 support is currently a local, hardware-unverified candidate; choosing x86 does not add MDI support to the older public app.**
+
+For the MDI candidate, match the app to the installed **J2534 provider**, not to Windows: a 32-bit provider needs the **32-bit/x86 app even on 64-bit Windows**. The x64 app cannot load a 32-bit driver DLL. The original Bosch MDI provider checked on our test PC is 32-bit. Other MDI or MDI 2 provider configurations may differ; check the installed provider rather than assuming every model uses x86. Provider discovery alone does not confirm a connected unit or qualify vehicle reading/writing.
+
 The app uses a local signed integrity seal. It is not a Windows publisher certificate, activation system or guarantee against reverse engineering. Integrity checks run before new operations, not as an integrity-triggered abort during active transfers. Keep the supplied executable filename.
