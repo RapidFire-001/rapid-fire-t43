@@ -4,7 +4,7 @@
 
 ## Recommended prerelease
 
-[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.149/Rapid-Fire-T43-Protected-0.4.149.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.149)
+[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.155/Rapid-Fire-T43-for-Windows-0.4.155-test.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.155)
 
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
@@ -12,7 +12,7 @@ Extract the ZIP to a writable location, then open the executable inside the incl
 
 ## Diagnostic devices
 
-Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Its native write transport is an opt-in trial.
+Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Write Calibration automatically selects the faster MDI transport when the supported VF profile qualifies.
 
 ## Compatibility
 
