@@ -4,13 +4,13 @@
 
 ## Recommended prerelease
 
-[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.155/Rapid-Fire-T43-for-Windows-0.4.155-test.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.155)
+[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.156/Rapid-Fire-T43-for-Windows-0.4.156-test.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.156)
 
-**What changed in 0.4.155**
+**What changed in 0.4.156**
 
-- Write Calibration automatically uses the faster transport with the original GM MDI on the eligible VF profile.
+- Write Calibration automatically uses the faster transport with the original GM MDI on supported VE and VF T43 profiles.
 - Removed the transport test button and trial checkbox. The device selector now displays **GM MDI**.
-- The standard erase-and-write confirmation and full readback verification are required. Automatic fast-write selection will be tested on a vehicle.
+- The standard erase-and-write confirmation and full readback verification are required.
 
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
@@ -18,7 +18,7 @@ Extract the ZIP to a writable location, then open the executable inside the incl
 
 ## Diagnostic devices
 
-Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Write Calibration automatically selects the faster MDI transport when the supported VF profile qualifies.
+Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Write Calibration automatically selects the faster MDI transport on supported VE and VF T43 profiles.
 
 ## Compatibility
 
