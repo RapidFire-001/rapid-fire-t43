@@ -4,29 +4,26 @@
 
 ## Recommended prerelease
 
-[Download the 32-bit app — 0.4.106](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.106-x86/Rapid-Fire-T43-Protected-0.4.106-x86.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.106-x86)
+[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.149/Rapid-Fire-T43-Protected-0.4.149.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.149)
 
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
-Extract the single executable to a writable folder and keep its supplied filename. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
+Extract the ZIP to a writable location, then open the executable inside the included Rapid Fire T43 folder. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
 
-## Single 32-bit app and GM MDI drivers
+## Diagnostic devices
 
-The current download choice is **one 32-bit/x86 app**, for supported 32-bit and 64-bit Windows. Older x64 releases are superseded and are not supported for current MDI testing; they remain historical archives.
-
-**The public 0.4.106 app retains its GT workflow. MDI/MDI 2 support is a local, hardware-unverified candidate and is not added to the old public binary by choosing x86.** In the local 32-bit candidate, MDI and MDI 2 require an installed compatible **32-bit J2534 provider**. Match the provider to the app, not to Windows: the original Bosch MDI provider checked on our test PC is 32-bit, so a 64-bit app cannot load it. Other vendor/provider configurations may differ. Driver registration does not confirm a connected unit or qualify vehicle reading/writing.
+Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Its native write transport is an opt-in trial.
 
 ## Compatibility
 
 - Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
-- Windows 11 has recorded test evidence. Windows 10 is expected with .NET Framework 4.8 and a compatible OBDX Pro GT USB driver, but has not been separately qualified. Windows 7 has user-reported testing with complete environment/operation details. Windows XP is incompatible with this build. macOS and Linux are not supported.
-- Use the supplied 32-bit app on supported 32-bit or 64-bit Windows. There is no separate current x64 choice. Historical x86-on-x64 host tests do not qualify every Windows installation.
+- One download runs on compatible 32-bit and 64-bit Windows. Windows 11 has recorded test evidence. Windows 10 is expected to work with .NET Framework 4.8 and a compatible diagnostic driver. The project owner verified Windows 7 SP1 with .NET Framework 4.8 on an earlier build. Windows XP is unsupported.
 
 ## Limits
 
 Only calibration data is programmed; this is not an OS, boot, program or EEPROM flasher. Independent verification follows the guided ignition cycle. Recovery and Security linking are disabled. The app does not establish whether tuning values are suitable for driving.
 
-Vehicle fault-code coverage is participating OBD responders plus TCM current/history, not every module. Whole-network clearing requires a fresh report and separate confirmation; permanent codes may remain. Request/acknowledgement/rescan evidence does not prove every stored fault can be removed. The offline guide defines 15 selected transmission codes; other codes are still shown without guessed descriptions.
+Vehicle fault-code coverage is participating OBD responders plus TCM current/history, not every module. Whole-network clearing requires a fresh report and separate confirmation; permanent codes may remain. Request/acknowledgement/rescan evidence does not prove every stored fault can be removed. The offline guide defines selected fault codes; other codes are still shown without guessed descriptions.
 
 Read Help before connecting. Use stable vehicle power and follow the in-app prompts. Keep preserved originals and enrollment records. Do not intentionally interrupt programming.
 
