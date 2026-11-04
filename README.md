@@ -6,6 +6,12 @@
 
 [Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.155/Rapid-Fire-T43-for-Windows-0.4.155-test.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.155)
 
+**What changed in 0.4.155**
+
+- Write Calibration automatically uses the faster transport with the original GM MDI on the eligible VF profile.
+- Removed the transport test button and trial checkbox. The device selector now displays **GM MDI**.
+- The standard erase-and-write confirmation and full readback verification are required. Automatic fast-write selection will be tested on a vehicle.
+
 Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
 
 Extract the ZIP to a writable location, then open the executable inside the included Rapid Fire T43 folder. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
