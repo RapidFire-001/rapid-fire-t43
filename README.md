@@ -40,3 +40,7 @@ Read Help before connecting. Use stable vehicle power and follow the in-app prom
 Copyright (c) 2026 Rapidfire. All rights reserved, subject to applicable third-party terms.
 
 The approved whole-app distribution terms are provided in this repository and apply to the exact releases identified in their notes. Version 0.4.106 embeds the approved whole-app terms alongside the Boot Block and third-party notices.
+
+## Support
+
+For help with this software, email [Rapid Fire Software Support](mailto:support@rapidfiresoftware.net). Include the software version, what you were trying to do, and any error message you saw.
