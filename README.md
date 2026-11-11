@@ -1,5 +1,7 @@
 # Rapid Fire GM Holden T43
 
+Rapid Fire GM Holden T43 Flasher for Windows. Read and enroll compatible GM T43 transmission controllers, write calibration-only changes, and verify by readback.
+
 **Prerelease software by Rapidfire.** Reads and enrolls compatible GM T43 controllers, writes calibration-only edits, and verifies the result by readback. Free personal and business use and free sharing of the complete, unmodified app with notices intact are permitted under the [application licence](LICENSE.txt). Application source is private; this repository contains public documentation and notices only.
 
 ## Recommended prerelease
