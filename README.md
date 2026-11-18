@@ -1,48 +1,65 @@
-# Rapid Fire GM Holden T43
+# GM T43
 
-Rapid Fire GM Holden T43 Flasher for Windows. Read and enroll compatible GM T43 transmission controllers, write calibration-only changes, and verify by readback.
+[Download the illustrated PDF booklet](GM-T43-User-Guide-0.4.216.pdf)
 
-**Prerelease software by Rapidfire.** Reads and enrolls compatible GM T43 controllers, writes calibration-only edits, and verifies the result by readback. Free personal and business use and free sharing of the complete, unmodified app with notices intact are permitted under the [application licence](LICENSE.txt). Application source is private; this repository contains public documentation and notices only.
+Windows software by Rapidfire for GM T43 transmission controllers: save and enroll an original, write calibration changes, change or restore the OS, recover from a supplied BIN, and verify by readback.
 
-## Recommended prerelease
+Support is determined by the connected T43 and its firmware profile, rather than a VE/VF vehicle label. The current app includes **25 OS profiles**, supports **OBDX Pro GT / GT Pro and the original GM MDI**, and offers adapts, fault-code reading/clearing and VIN programming without requiring the OS to appear in the catalogue. See [compatibility](COMPATIBILITY.md) for the requirements of each operation.
 
-> **Microsoft Edge download notice.** SmartScreen may warn that a file isn’t commonly downloaded when it has limited download history. In our test, the Rapid Fire T43 v0.4.156 Windows ZIP downloaded in Edge without a warning. If Edge or your antivirus shows a malware warning, please send the exact message and the file name or release version so I can investigate. If the GitHub page is unavailable in Edge, you can also view it in Firefox or Chrome. See [Microsoft’s SmartScreen guidance](https://learn.microsoft.com/en-us/windows/apps/package-and-deploy/smartscreen-reputation).
+## Current Windows prerelease: 0.4.216
 
-[Download Rapid Fire T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.156/Rapid-Fire-T43-for-Windows-0.4.156-test.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.156)
+[Download GM T43 for Windows](https://github.com/RapidFire-001/rapid-fire-t43/releases/download/v0.4.216/GM-T43-for-Windows-0.4.216.zip) · [Release notes](https://github.com/RapidFire-001/rapid-fire-t43/releases/tag/v0.4.216) · [Quick start](QUICKSTART.md) · [Full user guide](HELP.md)
 
-**What changed in 0.4.156**
+One **32-bit/x86 app** runs on compatible 32-bit or 64-bit Windows with .NET Framework 4.8 and the correct diagnostic-device driver. The original GM MDI requires a matching **32-bit J2534 provider**. MDI 2 and other adapters are not included in this release's verified adapter scope.
 
-- Write Calibration automatically uses the faster transport with the original GM MDI on supported VE and VF T43 profiles.
-- Removed the transport test button and trial checkbox. The device selector now displays **GM MDI**.
-- The standard erase-and-write confirmation and full readback verification are required.
+Extract the ZIP to a writable folder and keep the supplied executable filename. Download the named application ZIP, not GitHub's automatically generated source archives, which contain documentation only. The package starts with **no enrollment, saved vehicle, preset OS or recovery BIN**. Updates are manual.
 
-Download the versioned app ZIP above, rather than GitHub's automatically generated “Source code” archives. Those contain this documentation, not the application.
+## What is included
 
-Extract the ZIP to a writable location, then open the executable inside the included Rapid Fire T43 folder. First launch creates **Logs** and **VehicleEnrollments** beside it. Help, licences and the offline fault-code guide are embedded. Updates are manual downloads; the app has no automatic updater.
+- **Save OS and enrollment:** a complete image from the connected controller, with its own preserved original.
+- **Write calibration:** compatible calibration edits matched to the connected vehicle, enrolled original and installed OS/program, followed by readback verification.
+- **Change OS:** select a full BIN without rebuilding the app. File checks and calibration differences are shown before confirmation.
+- **Restore original:** one button names the saved OS; choose the responding-controller or direct-recovery path inside the confirmation.
+- **Recover OS from BIN without enrollment:** supply a compatible full BIN when there is no usable enrollment or the normal OS cannot identify itself.
+- **Calibration recovery:** one restore action checks the installed protected firmware once, finds the matching saved original and restores on the same connection. A mismatch stops before erase or write.
+- **Transmission adapts:** Trans Adapt Reset, Trans Adapt Preset and Trans Fast Adapt Reset, including responding controllers with unlisted OSs.
+- **Vehicle fault codes and VIN:** read/save a report, clear participating vehicle codes with confirmation, and program/verify a VIN; no single-OS or catalogue-only gate.
+- **Clear progress and records:** preparation, acknowledged transfer and readback progress appear once beside the bar, with bytes, percentage and speed where applicable. Interrupted operations, accepted transfers and verified readbacks remain distinct.
 
-## Diagnostic devices
+## Before driving after a calibration change
 
-Use a compatible diagnostic driver for the GT or original GM MDI (MDI 1). The original GM MDI requires a compatible 32-bit J2534 provider. Write Calibration automatically selects the faster MDI transport on supported VE and VF T43 profiles.
+The GM T43 workflow requires this checkpoint after the calibration write and its readback verification have passed. Open **Transmission Functions** and run the top three buttons in their displayed order:
 
-## Compatibility
+1. **Trans Adapt Reset**
+2. **Trans Adapt Preset**
+3. **Trans Fast Adapt Reset**
 
-- Installed OS **24256125** and **24267577**, with compatible boot/program code, layout and checksums. Each vehicle requires its own read and enrollment. Matching an OS number alone is insufficient.
-- One download runs on compatible 32-bit and 64-bit Windows. Windows 11 has recorded test evidence. Windows 10 is expected to work with .NET Framework 4.8 and a compatible diagnostic driver. The project owner verified Windows 7 SP1 with .NET Framework 4.8 on an earlier build. Windows XP is unsupported.
+Run one at a time, follow the displayed conditions and wait for each acceptance before continuing. **Complete all three before driving.** A rejection or timeout leaves the checkpoint incomplete; resolve it before proceeding. Also follow the vehicle-specific service procedure for operating conditions and any further relearn. These command acknowledgements do not establish a completed guided Fast Learn or road/shift validation.
 
-## Limits
+## Recovery preserves the boot area
 
-Only calibration data is programmed; this is not an OS, boot, program or EEPROM flasher. Independent verification follows the guided ignition cycle. Recovery and Security linking are disabled. The app does not establish whether tuning values are suitable for driving.
+Calibration writes, OS changes and OS recovery **do not erase or program the existing boot area**. OS changes and recovery write the main program and calibration while preserving the controller's boot area and EEPROM, even when the chosen full BIN contains those regions.
 
-Vehicle fault-code coverage is participating OBD responders plus TCM current/history, not every module. Whole-network clearing requires a fresh report and separate confirmation; permanent codes may remain. Request/acknowledgement/rescan evidence does not prove every stored fault can be removed. The offline guide defines selected fault codes; other codes are still shown without guessed descriptions.
+A controller whose normal software will not start but whose supported bootloader still responds may be recoverable from a **soft-bricked / semi-bricked** state using a compatible BIN. This app does not repair damaged boot code. A passed file check or readback does not by itself prove that a different OS will start or operate correctly on that hardware.
 
-Read Help before connecting. Use stable vehicle power and follow the in-app prompts. Keep preserved originals and enrollment records. Do not intentionally interrupt programming.
+## Planned for the next build
 
-[Quick start](QUICKSTART.md) · [Testing and compatibility](COMPATIBILITY.md) · [Release history](CHANGELOG.md) · [Licence](LICENSE.txt) · [Third-party notices](THIRD-PARTY-NOTICES.txt)
+These three functions are planned and **remain disabled in this release**:
+
+1. **Guided Transmission Fast Learn** - the monitored learning procedure.
+2. **Trans Clean** - the transmission cleaning procedure.
+3. **Security linking** - controller security/linking support.
+
+Trans Fast Adapt Reset is already available. It is a separate command and is not the guided Fast Learn procedure.
+
+## Use and support
+
+Read the [user guide](HELP.md) before use. Keep stable power and connections during programming, follow the ignition prompts and preserve the entire application data folder when updating. The app reports the controller's actual acceptance, rejection or timeout; an available command is not a promise that every controller implements it.
+
+Free personal/business use and sharing of the complete, unmodified application are permitted under the [application licence](LICENSE.txt). Source remains private; this repository contains documentation and notices. [Third-party notices](THIRD-PARTY-NOTICES.txt) remain applicable.
+
+For help, email [Rapid Fire Software Support](mailto:support@rapidfiresoftware.net) with the application version, adapter, operation and error message. Keep raw BINs, VINs, enrollment files and unredacted logs out of public issues.
+
+[Compatibility and coverage](COMPATIBILITY.md) · [Release history](CHANGELOG.md) · [Update policy](RELEASE-POLICY.md)
 
 Copyright (c) 2026 Rapidfire. All rights reserved, subject to applicable third-party terms.
-
-The approved whole-app distribution terms are provided in this repository and apply to the exact releases identified in their notes. Version 0.4.106 embeds the approved whole-app terms alongside the Boot Block and third-party notices.
-
-## Support
-
-For help with this software, email [Rapid Fire Software Support](mailto:support@rapidfiresoftware.net). Include the software version, what you were trying to do, and any error message you saw.
