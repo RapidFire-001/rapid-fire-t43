@@ -32,6 +32,15 @@ The app includes these 25 catalogue profiles. This list describes implemented pr
 
 The public Tested OSs screen lists OS numbers. It does not require users to choose an early/later controller category or a reference boot group. Connect the controller and use its reported identity and the app's operation checks.
 
+## OS reference inventory (35)
+
+The 25 profiles above and the 10 additional identifiers below make up the **35 OS references**. The additional identifiers come from tuning-tool profile listings and [historical OS references](https://forum.efilive.com/archive/index.php/t-26263.html). The 10 additional OSs are pending verification in Rapidfire.
+
+| OS | OS | OS | OS | OS |
+|---|---|---|---|---|
+| 24247961 | 24248859 | 24249833 | 24256065 | 24256093 |
+| 24257238 | 24257301 | 24264497 | 24276633 | 24292948 |
+
 ## Adapters and Windows
 
 - **OBDX Pro GT / GT Pro and original GM MDI:** shared application workflows and eligibility rules. Recorded tests include successful reads, writes, matching readbacks and recovery on the tested controllers. These results are separate from target-OS compatibility.
