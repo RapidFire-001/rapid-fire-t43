@@ -1,130 +1,57 @@
-# GM T43 user guide
+# GM T43 help - 0.4.233 public pre-release
 
-[Download the illustrated PDF booklet](GM-T43-User-Guide-0.4.216.pdf)
+[Illustrated guide](GM-T43-User-Guide-0.4.233.pdf) · [Quick start](QUICKSTART.md) · [Compatibility and scope](COMPATIBILITY.md)
 
-**Version 0.4.216** - Windows application by Rapidfire.
-
-This guide follows the current public interface. Support is determined by the connected T43's firmware and the requested operation, not a vehicle-series label. See [Compatibility](COMPATIBILITY.md) for the included OS profiles and evidence limits.
+This guide describes the 0.4.233 candidate. The published 0.4.216 release remains separate. The 0.4.233 package starts without customer enrollment records, saved originals, logs or standalone OS BINs; built-in catalogue profiles remain inside the executable.
 
 ## Connect and identify
 
-Choose the GT or original GM MDI and the appropriate connection. MDI requires its installed 32-bit J2534 provider. **Refresh adapters** updates the connection list; it does not measure voltage. **Compare voltage** requests a fresh sample. Driver registration does not confirm a connected adapter.
+The supported adapter choices in this candidate are **OBDSync**, **OBDX Pro GT / GT Pro**, and the **original GM MDI**. Each has a separate transport path. A driver for one device does not establish compatibility with another. The original GM MDI requires a compatible 32-bit J2534 provider.
 
-Confirm stable power, ignition on, engine off and other diagnostic software closed. **Identify controller** displays the responding controller's identity and supported operations. An unlisted OS can be identified without being automatically approved for every write method. No vehicle operation starts merely by opening the app.
+Confirm stable power, ignition on, engine off and other diagnostic software closed. Select the connected adapter and choose **Identify controller**. This reads the live T43 identity and determines which operation paths are eligible.
 
-## Save OS and enrollment
+## Save OS and enroll
 
-**Save OS** reads a full image using a supported profile and validates the completed file. Enrollment associates the original with that vehicle. A fresh installation has no enrolled vehicle, fixed original OS or preset recovery image. Each owner supplies their own original or recovery BIN.
+Choose **Save OS** and complete a full read. A catalogue OS follows its reviewed profile. An unlisted OS can go through local structural evaluation if its boot/helper ABI is recognized by the build.
 
-Preserve the full original and the entire app data folder. Enrollment and recovery records may be tied to the Windows user; do not assume copying those records to another computer makes them usable. Keep the independent original BIN as well.
+The evaluation checks the full image, expected T43 layout and headers, calibration checksums and program integrity. It does not run the image. If evaluation and live identity checks pass, enrollment binds the complete original to the controller's VIN, OS, program, boot and segment identities. Keep an independent copy of the original BIN.
 
-## Load BIN and write calibration
+A failed evaluation or incomplete read does not create a usable enrollment. A fresh package has no saved original until this process completes.
 
-Load a full BIN containing the intended calibration changes. File information reports the OS, firmware/profile match and applicable program/calibration checksum results. A passed file check establishes file consistency, not that every calibration value is suitable for driving or that another OS fits the controller.
+## Write calibration
 
-**Write calibration** checks the live controller and enrolled original, including matching OS/program and protected data. It writes calibration only. Follow the preparation, authorization, confirmation and ignition-cycle prompts, then finish the independent readback. The completion messages name the adapter actually used.
+Edit a copy of the complete enrolled original. Load the complete edited BIN, choose **Write calibration**, and follow setup, preparation and confirmation prompts. The source must match the enrolled controller's OS, program, boot and segment identities. The write plan contains calibration segments only.
 
-## Before driving after a calibration change
-
-The GM T43 workflow requires this checkpoint after the calibration write and its readback verification have passed. Open **Transmission Functions** and run the top three buttons in their displayed order:
-
-1. **Trans Adapt Reset**
-2. **Trans Adapt Preset**
-3. **Trans Fast Adapt Reset**
-
-Run one at a time, follow the displayed conditions and wait for each acceptance before continuing. **Complete all three before driving.** A rejection or timeout leaves the checkpoint incomplete; resolve it before proceeding. Also follow the vehicle-specific service procedure for operating conditions and any further relearn. These command acknowledgements do not establish a completed guided Fast Learn or road/shift validation.
+Complete the independent readback and wait for the app to report a match. A passed file check does not establish tuning suitability or vehicle performance.
 
 ## Calibration recovery
 
-Use this when the installed OS/program is to remain unchanged and its own saved calibration needs restoring, including after an interrupted calibration write.
+Choose **Calibration recovery** and select the controller state. For a responding controller, the app uses its supported authorization route. For a nonresponsive controller, select direct recovery. That path does not send a diagnostic preflight before the calibration transfer.
 
-1. Open **Calibration recovery** and select the controller state: normal response/authorization or nonresponding/direct recovery.
-2. Confirm the displayed connection conditions and choose **Restore saved calibration**.
-3. The app checks the connected vehicle and reads protected firmware once. It automatically matches the completed saved original and restores on that same connection.
-4. If the installed OS/program does not match, or the original is absent or ambiguous, it stops before erase or write and reports the problem.
-5. Follow the ignition prompt and use **Verify last restore** for the full comparison.
+The app requires a matching saved original for that controller and stops before writing if the identity or source cannot be confirmed. After recovery, complete readback verification.
 
-The protected-firmware check reads roughly 1.8 MB from the TCM. It is not uploading that much firmware and does not rewrite the bootloader. It prevents restoring calibration from one OS over a different installed program. A previous accepted restore is history, not proof of the controller's present state.
+## Change OS and recover OS
 
-## Change OS and restore the original
+For an OS swap, choose **Change OS**, select the recovery original belonging to this controller, then select a complete target BIN. Review the target image and checks before confirmation. The existing boot area and EEPROM are preserved; the selected BIN does not replace them.
 
-Choose **Change OS**, select this controller's recovery backup and choose **Continue to OS selection**. This selects the recovery original, not the target to flash. In the next window use **Choose OS BIN** to select the target. A main-screen loaded BIN does not automatically replace this selection.
+When no enrollment is available, use the no-enrollment OS recovery path with a complete supplied BIN and supported loader. File checks and explicit confirmation still apply. Verify the completed write and confirm normal startup separately. A compatible-looking OS number is not proof that the target fits every T43.
 
-Review the target OS, firmware/program/calibration checks and any calibration difference. **Flash selected OS** writes the selected program and calibration after confirmation. The app preserves the controller's existing boot area and EEPROM. It does not make all listed OSs interchangeable.
+## VIN and transmission functions
 
-**Restore original [OS number]** restores the named saved original. Its confirmation offers:
+VIN programming checks the live T43 identity, requires a valid intended VIN, sends the selected request once, and verifies readback. Transmission adapt functions are issued one at a time to a responding T43 and report acceptance, rejection or timeout. A command acknowledgement is not proof of a completed learning procedure.
 
-- **TCM responding normally:** uses the normal authorization route into programming.
-- **TCM not responding normally:** uses direct recovery through the resident loader.
+## Fault codes
 
-Both restore the same selected original; the handshake differs. After the prompted ignition cycle, **Verify last operation** compares against the exact recorded write, even if a different file has since been selected. Choosing a file alone does not start programming.
+The report includes available standard OBD replies and TCM current/history. It is not a scan of every vehicle module. Missing replies are not a clean result. Clearing requires a fresh complete report, matching live identity and separate confirmation; it can erase fault/freeze-frame evidence and reset readiness monitors.
 
-## Recover OS from BIN without enrollment
+## Fresh start, updates and scope
 
-Use **Change OS > Recover OS from BIN - no enrollment** when there is no usable saved enrollment, including a controller whose normal OS cannot identify itself. Supply a compatible full T43 BIN, choose the controller state, read the warning and explicitly confirm the write.
+The clean package contains no customer BINs, enrollment receipts, session logs or prior recovery originals. New customers must save and enroll their own controller. Built-in reference profiles remain embedded for the catalogue paths.
 
-This replaces the main OS program and calibration. File/layout/checksum and supported-loader checks still apply. The warning states that compatibility with the connected hardware is unverified. The app does not supply a universal recovery OS or an automatic rollback backup in a fresh installation.
+For an existing installation, back up the full app data folder before replacing files. Keep saved originals, enrollments and Logs. The local release seal is an integrity check, not a Windows publisher certificate.
 
-If recovery succeeds, follow the ignition prompt, run the recorded readback verification and confirm normal startup. A working controller can then be read and enrolled through Save OS. This does not automatically approve other OS swaps.
+This pre-release has not been qualified for every OS, boot variant or T43 hardware revision. Structural evaluation, transfer acceptance and matching readback are separate from normal startup and vehicle performance. Keep evidence private; do not post VINs, BINs, enrollment records or unredacted logs publicly.
 
-### What boot preservation means
+## Historical 0.4.216 booklet
 
-Calibration writes, OS changes and OS recovery do **not erase or program the existing boot area**. A full BIN may contain boot data, but these operations skip that portion. OS changes/recovery also preserve EEPROM rather than replacing it with donor data.
-
-A soft-bricked or semi-bricked controller is one whose normal software does not start but whose bootloader remains intact and responsive. The app can recover supported controllers in this condition with a compatible BIN. It cannot repair damaged boot code, create a missing bootloader response or guarantee recovery from every failure.
-
-## Progress, verification and interruptions
-
-Live progress is shown once beside the bar. The message area is for instructions, results and errors. Preparation/countdowns, writing and reading back have distinct stages. Byte-count stages show bytes, percentage and average transfer speed; preparation time is excluded. Verification shows read speed.
-
-- **Transfer accepted:** the controller acknowledged the requested write.
-- **Verification passed:** the completed readback matches the expected protected/program/calibration data for the operation, with mutable EEPROM handled separately.
-- **Normal startup:** the controller starts its normal software. This is separate from matching stored bytes and from road/shift performance.
-
-Stopped or interrupted attempts retain their logs and result. MDI cleanup has been corrected to avoid repeated cleanup/early driver unload, preserve the original operation error and prevent further sends after an unconfirmed release. Software interruption tests passed; the app does not treat cable loss as a completed transfer or automatically retry it.
-
-## Transmission Functions
-
-The following are available after valid live T43 OS identification, including an OS not listed in the catalogue:
-
-| Control | Purpose |
-|---|---|
-| Trans Adapt Reset | Requests reset of transmission adaptive learning. |
-| Trans Adapt Preset | Requests the transmission adaptive preset. |
-| Trans Fast Adapt Reset | Requests fast-adapt reset; this is not the guided Fast Learn procedure. |
-
-Run one function at a time and follow the displayed conditions. The app sends the selected command once and reports acceptance, rejection or timeout. An acknowledgement is not a readback of every learned value or proof that a complete learning procedure has finished. Complete the GM T43 post-calibration checkpoint above, and follow the relevant vehicle-specific service procedure for any further relearn.
-
-## Vehicle fault codes
-
-**Read and save report** collects the available standard OBD replies and TCM current/history. This is not a scan of every vehicle module. Missing replies are not a clean result. The offline **Fault code guide** explains covered codes; other codes remain visible without invented descriptions.
-
-**Clear vehicle codes** is a network operation, not transmission-only clearing. It needs a recent complete saved scan, the same live vehicle and OS, and explicit confirmation. It can clear stored/freeze-frame evidence and reset readiness monitors. The app checks replies and performs a follow-up scan. It does not repair the underlying fault; permanent codes may remain. A timeout or rejection is not retried automatically.
-
-Reading and public network clearing no longer require a listed OS or one of the original two profiles. Physical TCM-only clearing remains unavailable.
-
-## Change VIN number
-
-Select the adapter and confirm setup. **Read T43 VIN** obtains current OS/VIN identity. Enter the intended valid new VIN, review the current/new identity and confirm **Program VIN**. The app rechecks live identity, writes once and compares immediate readback. Then follow the power-cycle instruction and use **Verify after power cycle**.
-
-This feature is no longer limited to one OS or catalogue membership. The controller still has to implement and accept the request. It does not enable security linking or other module programming.
-
-## Tested OSs
-
-The searchable list contains the 25 catalogue OS numbers. It is a reference list, not a universal swap-compatibility chart. Read/write profiles use firmware/layout checks, while adapt, fault-code and VIN operations can be offered to valid responding unlisted OSs. Detailed internal test categories are not something a public user needs to select.
-
-## Planned for the next build
-
-These three functions are planned and **remain disabled in this release**:
-
-1. **Guided Transmission Fast Learn** - the monitored learning procedure.
-2. **Trans Clean** - the transmission cleaning procedure.
-3. **Security linking** - controller security/linking support.
-
-Trans Fast Adapt Reset is already available. It is a separate command and is not the guided Fast Learn procedure.
-
-## Updating and getting help
-
-Update only when the app is idle. Back up the full application folder, then extract the new files without deleting your saved originals, enrollments, recovery records or logs. Updates are manual. Keep the executable's supplied name so the embedded integrity check can validate the release. The local integrity seal is not a Windows publisher certificate.
-
-Contact [Rapid Fire Software Support](mailto:support@rapidfiresoftware.net) with version, Windows/adapter details, operation and error. Retain unredacted evidence locally; do not post raw BINs, VINs or enrollment files publicly. See [Licence](LICENSE.txt), [Third-party notices](THIRD-PARTY-NOTICES.txt) and [Release policy](RELEASE-POLICY.md).
+The 0.4.233 PDF begins with a new supplement and retains the 0.4.216 illustrated booklet as an unchanged historical appendix. Where the appendix differs on adapter support or unlisted-OS eligibility, follow the 0.4.233 supplement and this guide.

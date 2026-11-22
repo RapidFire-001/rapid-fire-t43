@@ -1,15 +1,25 @@
 # GM T43 prerelease and update policy
 
-GM T43 remains a prerelease while development and controller testing continue. The current distribution is one 32-bit/x86 application for compatible 32-bit or 64-bit Windows. The README names the current version and links its application ZIP. Older release pages remain historical and are superseded by that recommendation.
+The published GitHub release on the main branch remains version 0.4.216. The 0.4.233 public pre-release candidate is kept on a separate documentation branch until reviewed; its branch and draft pull request do not replace or alter the 0.4.216 release.
 
-Each release records its changes, requirements, software checks, hardware evidence and outstanding work. An OS being listed, a command being enabled, a write being accepted, a matching readback and normal startup are separate results. Neither software models nor one successful controller trial establishes universal compatibility.
+## What a public package contains
 
-Public packages contain the compiled app and public documentation/notices. They contain no user enrollment, original recovery image, VIN, controller BIN, private source, signing key or private logs. GitHub source archives contain this documentation repository only. Approved application and third-party terms remain in force.
+A clean application package contains the compiled app and public documentation/notices. It contains no user enrollment, original recovery image, VIN, controller BIN, private source, signing key or private logs. Built-in reference profiles required by catalogue paths remain embedded in the application. A new installation creates its own records only after a successful live read and identity confirmation.
 
-Updates are manual. Close the idle app and preserve the entire data folder, including Logs, VehicleEnrollments and recovery/session records. Keep the executable filename and use the current package. Do not overwrite an operation in progress or substitute another vehicle's enrollment. The embedded release seal is an integrity check, not a Windows publisher certificate or guarantee of universal compatibility.
+GitHub's generated source archives contain the documentation repository, not the compiled application. The app is distributed as a separately named package. Preserve the supplied executable name and follow the applicable application and third-party terms.
 
-If a release is withdrawn, its page will state the reason and affected version. A withdrawn binary may be removed while explanatory history remains. Retain local operation evidence and use the appropriate recovery route; do not treat switching app versions as proof that a partial write completed.
+## Version 0.4.233 candidate
 
-Reports should include app version, Windows version, adapter and driver/provider version, controller OS if available, operation and stage. Keep raw BINs, VINs, enrollment records and unredacted logs out of public issues. Use the support contact in the README for guidance.
+This candidate adds OBDSync through its own transport path and local structural evaluation of unlisted OS images. A passed local evaluation enables enrollment of that specific read after live VIN/OS checks. It is not a universal compatibility approval.
 
-Guided Fast Learn, Trans Clean and security linking are the three planned next-build items. They remain disabled until their implementation and checks are complete. Availability is announced through the release notes, not inferred from a button name or a related adapt command.
+Calibration writes, recovery and OS changes remain operation-specific and require the app's image, identity, confirmation and readback checks. A successful transfer, image evaluation or readback is not proof of normal startup or vehicle behaviour on every hardware revision.
+
+The release records scope and support requirements. The updated PDF begins with a 0.4.233 supplement; its appended 0.4.216 booklet is retained as historical reference. For differences in adapter support or unlisted-OS eligibility, the 0.4.233 documentation controls.
+
+## Updating and support
+
+Updates are manual. Close the app while idle. Preserve the complete data folder, including Logs, VehicleEnrollments, saved originals and recovery/session records. Do not substitute another vehicle's enrollment or overwrite an operation in progress.
+
+Support reports should include app version, Windows version, adapter and driver/provider version, controller OS if available, operation and stage. Keep raw BINs, VINs, enrollment records and unredacted logs out of public issues. Use the support contact in the README.
+
+The embedded release seal is an integrity check, not a Windows publisher certificate or guarantee of universal compatibility. A withdrawn release will state the reason and affected version; do not treat switching versions as proof that an interrupted write completed.
