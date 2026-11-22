@@ -22,7 +22,7 @@ The binary candidate package is maintained separately from this documentation br
 
 Support is determined by the connected T43, the requested operation, and the exact adapter transport. OBDSync, OBDX Pro GT / GT Pro, and original GM MDI are separate adapter choices. The original MDI requires its compatible 32-bit J2534 provider.
 
-- [Compatibility and evidence](COMPATIBILITY.md)
+- [Compatibility and scope](COMPATIBILITY.md)
 - [Quick start](QUICKSTART.md)
 - [Full help](HELP.md)
 - [Release history](CHANGELOG.md)
